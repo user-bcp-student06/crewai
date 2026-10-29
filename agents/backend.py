@@ -41,6 +41,7 @@ Actividades, en este orden:
    - Validaciones con @ParameterizedTest para entradas inválidas.
    - Resource con @QuarkusTest: un caso válido y un caso de error por endpoint.
    - Nombres given_when_then; patrón Arrange-Act-Assert; sin Thread.sleep ni orden entre tests.
+   - Curbrir al 100% pruebas unitarias y de integración.
 
 5. Cierra con los comandos de verificación en backend_spec.md:
    - Caso válido: curl con la petición y la respuesta esperada.
@@ -50,7 +51,9 @@ Actividades, en este orden:
 Reglas:
 - Implementa solo los endpoints del Issue y del contrato del arquitecto.
 - No incluyas credenciales ni secretos en el código ni en el spec.
-- No ejecutes migraciones; entrega solo el SQL.
+- No ejecutes migraciones; no agregues inyección SQL.
+- No agregues dependencias innecesarias ni código muerto.
+- No modifiques código generado automáticamente ni archivos de configuración globales.
 """
 
 agent = Agent(role='Desarrollador backend Quarkus',
