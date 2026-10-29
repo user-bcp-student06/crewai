@@ -94,8 +94,7 @@ disponible, destinada a utilizarse como user_story.md.
 """
 agent = Agent(
     role=(
-        "Arquitecto de software encargado de convertir Features e Issues "
-        "en diseños técnicos claros, mantenibles y verificables."
+        "Arquitecto de software "
     ),
     goal=(
         "Definir componentes, responsabilidades, límites de cambio y "
