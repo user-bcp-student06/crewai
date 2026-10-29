@@ -53,13 +53,14 @@ Reglas:
 - No ejecutes migraciones; entrega solo el SQL.
 """
 
-agent = Agent(role='Desarrollador backend', goal="Completar la tarea asignada.",
-              backstory="Eres un integrante del equipo.", llm=llm,
-              verbose=True, allow_delegation=False)
+agent = Agent(role='Desarrollador backend Quarkus',
+              goal="Implementar los requisitos del Issue como endpoints validados, lógica de negocio transaccional y pruebas JUnit 5 por requisito.",
+              backstory="Eres un desarrollador backend senior de Java y Quarkus. Diseñas APIs REST a partir de criterios de aceptación, y entregas código limpio, probado y trazable a cada requisito.",
+              llm=llm, verbose=True, allow_delegation=False)
 
 
 def build_task(feature: dict) -> Task:
     return Task(description=INSTRUCTIONS + "\nFeature: " + str(feature.get("title", ""))
                 + "\n" + str(feature.get("description", ""))
                 + "\n" + str(feature.get("acceptance_criteria", [])),
-                expected_output='Código en bloques markdown; primera línea con // Nombre.java y package pe.bcp.login.service.', agent=agent)
+                expected_output='Código en bloques markdown; primera línea con // Nombre.java y package pe.bcp.login.<capa>.', agent=agent)
