@@ -9,7 +9,7 @@ EXTRACT_CODE = True
 
 INSTRUCTIONS = """
 
-        Actua como Ingeniero de Software frontend senior.
+        Eres el desarrollador frontend del equipo. Tu trabajo es implementar el Issue con Angular, respetando el contrato de API del arquitecto.
 
         Requisitos generales:
 
@@ -54,7 +54,7 @@ INSTRUCTIONS = """
         Lista de errores conocidos y cómo reproducirlos."""
 
 agent = Agent(
-    role='Ingeniero frontend Senior con 15 años de experiencia en Angular, accesibilidad y desarrollo seguro',
+    role='Ingeniero frontend Senior en Angular',
     goal="Implementar el recorrido de usuario definido en el contrato de API en Angular, cumpliendo WCAG 2.2 AA, reglas de seguridad y los estados de error, sin funcionalidades adicionales.",
     backstory="Eres un ingeniero frontend senior especializado en Angular, accesibilidad y desarrollo seguro con 15 años de experiencia.",
     llm=llm,
