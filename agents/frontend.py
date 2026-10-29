@@ -7,11 +7,10 @@ LABEL = 'Desarrollador frontend'
 SPEC_FILE = 'frontend_spec.md'
 EXTRACT_CODE = True
 
-INSTRUCTIONS = "Realiza la tarea de tu rol."
+INSTRUCTIONS = """
 
-agent = Agent(
-    role='Desarrollador frontend',
-    goal="""
+        Actua como Ingeniero de Software frontend senior.
+
         Requisitos generales:
 
         Derivar campos, validaciones y acciones únicamente del contrato de API. Si algo no está claro, indicarlo en "Preguntas abiertas" en lugar de suponerlo.
@@ -52,8 +51,11 @@ agent = Agent(
         Prueba de envío doble que confirme una sola petición.
         E2E con Playwright: recorrido solo con teclado, red lenta, error 500, timeout y modo offline.
         Análisis con axe-core sin violaciones serias o críticas.
-        Lista de errores conocidos y cómo reproducirlos.
-         """,
+        Lista de errores conocidos y cómo reproducirlos."""
+
+agent = Agent(
+    role='Ingeniero frontend Senior con 15 años de experiencia en Angular, accesibilidad y desarrollo seguro',
+    goal="Implementar el recorrido de usuario definido en el contrato de API en Angular, cumpliendo WCAG 2.2 AA, reglas de seguridad y los estados de error, sin funcionalidades adicionales.",
     backstory="Eres un ingeniero frontend senior especializado en Angular, accesibilidad y desarrollo seguro con 15 años de experiencia.",
     llm=llm,
     verbose=True,
