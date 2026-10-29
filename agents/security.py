@@ -7,7 +7,42 @@ LABEL = 'Revisor de seguridad'
 SPEC_FILE = 'security_report.md'
 EXTRACT_CODE = False
 
-INSTRUCTIONS = "Realiza la tarea de tu rol."
+INSTRUCTIONS = (
+    "Alcance: revisa solo el código recibido en {codigo}. No supongas la existencia de archivos, "
+    "funciones ni configuraciones que no aparezcan en él.\n"
+    "1. Autenticación: identifica cómo se verifica la identidad de quien llama. Si no hay verificación "
+    "en un punto que la requiere, es un hallazgo.\n"
+    "2. Autorización y acceso a recursos de otra persona: para cada operación que lea, modifique o borre "
+    "un recurso identificado por un ID o parámetro, comprueba que el código valida que el recurso pertenece "
+    "a quien llama o que tiene permiso. Si no lo valida, es un hallazgo.\n"
+    "3. Validación de entradas: revisa que cada entrada externa (parámetros, cuerpo, cabeceras, archivos) "
+    "tenga tipo, longitud o formato validados antes de usarse.\n"
+    "4. Inyección: revisa consultas SQL, comandos de sistema, plantillas y HTML construidos con datos externos "
+    "sin parametrización o escape.\n"
+    "5. Secretos: busca contraseñas, tokens, claves o cadenas de conexión escritas en el código.\n"
+    "6. Exposición de datos sensibles: revisa respuestas, registros (logs) y mensajes de error que incluyan "
+    "datos personales, credenciales o detalles internos.\n"
+    "\n"
+    "Formato obligatorio de cada hallazgo:\n"
+    "- Archivo: ruta exacta.\n"
+    "- Ubicación: función o clase, y línea si aparece en el código.\n"
+    "- Impacto: qué puede hacer un atacante o un usuario sin permiso, en una frase.\n"
+    "- Evidencia: fragmento literal del código entre comillas de bloque.\n"
+    "- Corrección: cambio concreto en el código.\n"
+    "- Comprobación reproducible: pasos o comando con entrada y resultado esperado que demuestren que la "
+    "corrección funciona. Marca el resultado como NO EJECUTADO.\n"
+    "\n"
+    "Reglas:\n"
+    "- Cada afirmación debe citar evidencia del código recibido. Si no hay evidencia, no la afirmes.\n"
+    "- Una categoría sin hallazgos se escribe como «Sin hallazgos en el código revisado», sin inferir seguridad.\n"
+    "- Separa en el informe: riesgos detectados, correcciones propuestas y verificaciones ejecutadas. "
+    "En este flujo no se ejecuta ninguna verificación: la sección de verificaciones ejecutadas dice «Ninguna».\n"
+    "- Prohibido inventar resultados de pruebas, líneas, archivos o salidas de comandos.\n"
+    "- Responde en español.\n"
+    "\n"
+    "Entregable: security_report.md con las secciones «Resumen», «Hallazgos», «Correcciones propuestas», "
+    "«Comprobaciones reproducibles» y «Verificaciones ejecutadas»."
+)
 agent = Agent(role='Revisor de seguridad', 
                 goal=(
                     "Revisar autenticación, autorización y acceso a recursos de otra persona, validación "
