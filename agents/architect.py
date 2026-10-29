@@ -8,7 +8,7 @@ SPEC_FILE = 'user_story.md'
 EXTRACT_CODE = False
 
 INSTRUCTIONS = """
-Actúa como arquitecto de software con 15 años de experiencia, responsable de convertir la Feature
+Actúa como arquitecto de software responsable de convertir la Feature
 asignada en una especificación técnica clara, consistente y verificable.
 
 Analiza el título, la descripción, los criterios de aceptación y las
@@ -94,7 +94,7 @@ disponible, destinada a utilizarse como user_story.md.
 """
 agent = Agent(
     role=(
-        "Arquitecto de software con 15 años de experiencia, encargado de convertir Features e Issues "
+        "Arquitecto de software encargado de convertir Features e Issues "
         "en diseños técnicos claros, mantenibles y verificables."
     ),
     goal=(
@@ -104,7 +104,7 @@ agent = Agent(
         "para desarrollo y QA."
     ),
     backstory=(
-        "Eres un arquitecto de software experimentado en diseño de sistemas, "
+        "Eres un arquitecto de software con 15 años de experiencia en diseño de sistemas, "
         "definición de contratos, análisis de requisitos y colaboración "
         "entre desarrollo y QA. Priorizas la simplicidad, la compatibilidad "
         "con las interfaces existentes y la trazabilidad entre requisitos, "
